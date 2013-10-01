@@ -1,20 +1,23 @@
+#include <tr1/memory>
+
+
 class Foo
 {
 public:
     Foo() {}
-    Foo(int j) { i=new int[j]; }
-    ~Foo() { delete i; }
+    Foo(int j) : i(new int[j]) {}
+
 private:
-    int* i;
+    std::tr1::shared_ptr<int> i;
 };
+
 
 class Bar: public Foo
 {
 public:
-    Bar(int j) { i=new char[j]; }
-    ~Bar() { delete i; }
+    Bar(int j) : i(new char[j]) {}
 private:
-    char* i;
+    std::tr1::shared_ptr<char> i;
 };
 
 

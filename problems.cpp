@@ -17,11 +17,12 @@ private:
 };
 
 
-void main()
+int main()
 {
     Foo* f=new Foo(100);
     Foo* b=new Bar(200);
     *f=*b;
     delete f;
     delete b;
+    return 0;
 }

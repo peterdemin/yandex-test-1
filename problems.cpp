@@ -1,13 +1,14 @@
 class Foo
 {
 public:
+    Foo() {}
     Foo(int j) { i=new int[j]; }
     ~Foo() { delete i; }
 private:
     int* i;
 };
 
-class Bar: Foo
+class Bar: public Foo
 {
 public:
     Bar(int j) { i=new char[j]; }
